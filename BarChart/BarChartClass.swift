@@ -84,49 +84,23 @@ class BarChartView: UIView {
         //1/4, 1/2, 3/4 1 lines
         let zeroLineValue = (self.frame.maxY - self.frame.origin.y)
         //1 line
-        let line1 = UIView()
-        line1.frame = CGRect(x: 15.0, y: 0.0 + 5, width: self.frame.width - 20, height: 1.0)
-        line1.backgroundColor = .systemGray3
-        self.addSubview(line1)
-        let label1 = UILabel()
-        label1.frame = CGRect(x: 0.0, y: 0.0 , width: maxValue, height: 15.0)
-        label1.text = "\(maxValue)"
-        label1.adjustsFontSizeToFitWidth = true
-        label1.textColor = .systemGray3
-        self.addSubview(label1)
-        
+        drawAxe(0.0, "\(maxValue)")
         //1/2 line
-        let line2 = UIView()
-        line2.frame = CGRect(x: 15.0, y: CGFloat((0.5 * zeroLineValue) + 5.0), width: self.frame.width - 20, height: 1.0)
-        line2.backgroundColor = .systemGray3
-        self.addSubview(line2)
-        let label2 = UILabel()
-        label2.frame = CGRect(x: 0.0, y: CGFloat(0.5 * zeroLineValue) , width: 15.0, height: 15.0)
-        label2.text = "\(0.5 * maxValue)"
-        label2.adjustsFontSizeToFitWidth = true
-        label2.textColor = .systemGray3
-        self.addSubview(label2)
-        
+        drawAxe((0.5 * zeroLineValue), "\(0.5 * maxValue)")
         //1/4 line
-        let line3 = UIView()
-        line3.frame = CGRect(x: 15.0, y: CGFloat((0.25 * zeroLineValue) + 5.0), width: self.frame.width - 20, height: 1.0)
-        line3.backgroundColor = .systemGray3
-        self.addSubview(line3)
-        let label3 = UILabel()
-        label3.frame = CGRect(x: 0.0, y: CGFloat(0.25 * zeroLineValue) , width: 15.0, height: 15.0)
-        label3.text = "\(0.25 * maxValue)"
-        label3.adjustsFontSizeToFitWidth = true
-        label3.textColor = .systemGray3
-        self.addSubview(label3)
-        
+        drawAxe((0.25 * zeroLineValue), "\(0.25 * maxValue)")
         //3/4 line
-        let line4 = UIView()
-        line4.frame = CGRect(x: 15.0, y: CGFloat((0.75 * zeroLineValue) + 5.0), width: self.frame.width - 20, height: 1.0)
+        drawAxe((0.75 * zeroLineValue), "\(0.75 * maxValue)")
+    }
+
+    func drawAxe(_ height: Double, _ title: String){
+            let line4 = UIView()
+        line4.frame = CGRect(x: 15.0, y: CGFloat(height + 5.0), width: self.frame.width - 20, height: 1.0)
         line4.backgroundColor = .systemGray3
         self.addSubview(line4)
         let label4 = UILabel()
-        label4.frame = CGRect(x: 0.0, y: CGFloat(0.75 * zeroLineValue) , width: 15.0, height: 15.0)
-        label4.text = "\(0.75 * maxValue)"
+        label4.frame = CGRect(x: 0.0, y: CGFloat(height) , width: 15.0, height: 15.0)
+        label4.text = title
         label4.adjustsFontSizeToFitWidth = true
         label4.textColor = .systemGray3
         self.addSubview(label4)
