@@ -88,9 +88,9 @@ class BarChartView: UIView {
         //1/2 line
         drawAxe((0.5 * zeroLineValue), "\(0.5 * maxValue)")
         //1/4 line
-        drawAxe((0.25 * zeroLineValue), "\(0.25 * maxValue)")
+        drawAxe((0.25 * zeroLineValue), "\(0.75 * maxValue)")
         //3/4 line
-        drawAxe((0.75 * zeroLineValue), "\(0.75 * maxValue)")
+        drawAxe((0.75 * zeroLineValue), "\(0.25 * maxValue)")
     }
 
     func drawAxe(_ height: Double, _ title: String){
